@@ -29,9 +29,8 @@ const courseRouter = express.Router();
 // );
 
 // // روت برای دریافت دوره بر اساس شناسه یا دریافت همه دوره‌ها
+
 courseRouter.get("/:id?", getCourse);
-courseRouter.get("/site", site);
-courseRouter.get("/mite", mite);
 
 // // روت برای دریافت دوره بر اساس دست بندی
 // courseRouter.get("/cat/:category", getCourseByCat);
