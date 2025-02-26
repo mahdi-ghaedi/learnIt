@@ -55,52 +55,57 @@ exports.setCourse = async (req, res) => {
 };
 
 exports.getCourse = async (req, res) => {
-  res.send({ message: "get course func in controller" });
-  // try {
-  //   if (req.params.id) {
-  //     const course = await courseModel
-  //       .findOne({ _id: req.params.id })
-  //       .select("-__v ")
-  //       .populate("teacher", "fullname -_id")
-  //       .populate("category", "title_fa -_id")
-  //       .lean();
+  try {
+    if (req.params.id) {
+      const course = await courseModel
+        .findOne({ _id: req.params.id })
+        .select("-__v ")
+        .populate("teacher", "fullname -_id")
+        .populate("category", "title_fa -_id")
+        .lean();
 
-  //     if (!course) {
-  //       return res.status(404).json({ message: "دوره پیدا نشد" });
-  //     }
+      if (!course) {
+        return res.status(404).json({ message: "دوره پیدا نشد" });
+      }
 
-  //     const sessions = await sessionModel
-  //       .find({ course: course._id })
-  //       .select("-__v -_id ")
-  //       .lean();
+      const sessions = await sessionModel
+        .find({ course: course._id })
+        .select("-__v -_id ")
+        .lean();
 
-  //     const comments = await commentModel
-  //       .find({ targetItem: course._id })
-  //       .select("author text replies _id")
-  //       .lean();
+      const comments = await commentModel
+        .find({ targetItem: course._id })
+        .select("author text replies _id")
+        .lean();
 
-  //     const countOfMember = await userCourseModel.find({ course: course._id });
+      const countOfMember = await userCourseModel.find({ course: course._id });
 
-  //     return res.json([
-  //       course,
-  //       sessions,
-  //       comments,
-  //       { counter: countOfMember.length },
-  //     ]);
-  //   }
+      return res.json([
+        course,
+        sessions,
+        comments,
+        { counter: countOfMember.length },
+      ]);
+    }
 
-  //   const courses = await courseModel
-  //     .find({})
-  //     .select("-__v ")
-  //     .populate("teacher", "fullname -_id")
-  //     .populate("category", "title_fa -_id")
-  //     .lean();
+    const courses = await courseModel
+      .find({})
+      .select("-__v ")
+      .populate("teacher", "fullname -_id")
+      .populate("category", "title_fa -_id")
+      .lean();
 
-  //   return res.json(courses);
-  // } catch (error) {
-  //   console.error(error);
-  //   return res.status(500).json({ message: "خطای داخلی سرور" });
-  // }
+    return res.json(courses);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "خطای داخلی سرور" });
+  }
+};
+exports.site = async (req, res) => {
+  res.send({ message: "site course func in controller" });
+};
+exports.mite = async (req, res) => {
+  res.send({ message: "mite course func in controller" });
 };
 
 exports.getCourseByCat = async (req, res) => {

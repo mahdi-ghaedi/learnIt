@@ -43,6 +43,7 @@ const runDB = async () => {
     process.exit(1);
   }
 };
+runDB();
 
 const app = require("./app"); // اپ Express را از فایل app صادر کرده‌ایم
 
