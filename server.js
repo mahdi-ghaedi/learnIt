@@ -28,29 +28,26 @@
 // runServer();
 require("dotenv").config();
 const mongoose = require("mongoose");
-const app = require("./app"); // اپ Express را از فایل app صادر کرده‌ایم
-
-const runServer = async () => {
-  await runDB(); // ابتدا اتصال به DB برقرار می‌شود
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // تنظیم timeout برای MongoDB
 };
 
 const runDB = async () => {
   try {
-    mongoose
-      .connect(process.env.URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 5000, // تایم‌اوت اتصال به دیتابیس
-      })
-      .then(() => console.log("Connected to MongoDB"))
-      .catch((err) => {
-        console.error("Error connecting to MongoDB:", err.message);
-        process.exit(1);
-      });
+    await mongoose.connect(process.env.URI, mongooseOptions);
+    console.log("Connected to MongoDB");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);
-    process.exit(1); // در صورت بروز خطا در اتصال به DB، برنامه خاتمه می‌یابد
+    process.exit(1);
   }
+};
+
+const app = require("./app"); // اپ Express را از فایل app صادر کرده‌ایم
+
+const runServer = async () => {
+  await runDB(); // ابتدا اتصال به DB برقرار می‌شود
 };
 
 // صدور اپ برای Vercel
