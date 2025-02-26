@@ -4,18 +4,18 @@ const {
   checkUser,
   accessToSetCourse,
 } = require("../../utilities/middlewares/auth");
-// const {
-//   setCourse,
-//   getCourse,
-//   editCourse,
-//   deleteOne,
-//   getCourseByCat,
-// } = require("./courses.controller");
+const {
+  // setCourse,
+  getCourse,
+  // editCourse,
+  // deleteOne,
+  // getCourseByCat,
+} = require("./courses.controller");
 
 const courseRouter = express.Router();
-courseRouter.get("/", (req, res) => {
-  res.send({ message: "course get cat" });
-});
+// courseRouter.get("/", (req, res) => {
+//   res.send({ message: "course get cat" });
+// });
 // // روت برای ایجاد دوره جدید
 // courseRouter.post(
 //   "/new",
