@@ -4,7 +4,7 @@ const app = require("./app");
 
 const runServer = async () => {
   await runDB(); // ابتدا اتصال به DB برقرار می‌شود
-  runPort(); // بعد از اتصال به DB، سرور شروع به کار می‌کند
+  // runPort(); // بعد از اتصال به DB، سرور شروع به کار می‌کند
 };
 
 const runDB = async () => {
@@ -18,11 +18,11 @@ const runDB = async () => {
   }
 };
 
-const runPort = () => {
-  const port = process.env.PORT || 3000; // پورت خودکار توسط Vercel
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  });
-};
+// const runPort = () => {
+//   const port = process.env.PORT || 3000; // پورت خودکار توسط Vercel
+//   app.listen(port, () => {
+//     console.log(`Listening on port ${port}`);
+//   });
+// };
 
 runServer();
