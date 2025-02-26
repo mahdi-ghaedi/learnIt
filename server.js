@@ -1,6 +1,6 @@
-const app = require("../app");
 require("dotenv").config();
 const mongoose = require("mongoose");
+const app = require("./app");
 
 const runServer = async () => {
   await runDB(); // ابتدا اتصال به DB برقرار می‌شود

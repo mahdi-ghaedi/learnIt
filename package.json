@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon api/server.js",
-    "start": "node api/server.js"
+    "test": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

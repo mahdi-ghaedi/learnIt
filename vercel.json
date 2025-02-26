@@ -1,21 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/server.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/server.js"
+      "dest": "server.js"
     }
-  ],
-  "env": {
-    "PORT": "3060",
-    "URI": "mongodb://localhost:27017/learnIt",
-    "SALT": "10",
-    "secretKey": "mgh@ghaediMahdi82"
-  }
+  ]
 }
