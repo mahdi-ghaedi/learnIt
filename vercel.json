@@ -8,7 +8,7 @@
     }
   ],
   "functions": {
-    "api/users/**/*.js": {
+    "server.js": {
       "maxDuration": 30
     }
   }
