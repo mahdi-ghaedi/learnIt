@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js",
+    "test": "nodemon api/server.js",
     "start": "node api/server.js"
   },
   "keywords": [],
