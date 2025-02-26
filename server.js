@@ -46,9 +46,9 @@ const runDB = async () => {
 
 const app = require("./app"); // اپ Express را از فایل app صادر کرده‌ایم
 
-const runServer = async () => {
-  await runDB(); // ابتدا اتصال به DB برقرار می‌شود
-};
+// const runServer = async () => {
+//   await runDB(); // ابتدا اتصال به DB برقرار می‌شود
+// };
 
 // صدور اپ برای Vercel
 module.exports = app;

@@ -27,7 +27,7 @@ courseRouter.get("/", (req, res) => {
 // );
 
 // // روت برای دریافت دوره بر اساس شناسه یا دریافت همه دوره‌ها
-// courseRouter.get("/:id?", getCourse);
+courseRouter.get("/:id?", getCourse);
 
 // // روت برای دریافت دوره بر اساس دست بندی
 // courseRouter.get("/cat/:category", getCourseByCat);
