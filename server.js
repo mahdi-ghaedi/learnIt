@@ -10,10 +10,7 @@ const runServer = async () => {
 const runDB = async () => {
   try {
     // اطمینان از اتصال به MongoDB Atlas یا هر پایگاه داده ابری
-    await mongoose.connect(process.env.URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.URI);
     console.log("Connected to MongoDB");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);
