@@ -26,7 +26,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/admin", adminRouter);
 app.use("/auth", userRouter);
-app.use("/category", catRouter);
+// app.use("/category", catRouter);
+app.use("/category", (req, res) => {
+  res.status(404).json({ Message: "category " });
+});
 app.use("/course", courseRouter);
 app.use("/comment", commentRouter);
 // app.post("/test", async (req, res) => {
