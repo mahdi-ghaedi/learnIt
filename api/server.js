@@ -1,5 +1,6 @@
 const app = require("../app");
 require("dotenv").config();
+const mongoose = require("mongoose");
 
 const runServer = async () => {
   await runDB(); // ابتدا اتصال به DB برقرار می‌شود
@@ -8,7 +9,11 @@ const runServer = async () => {
 
 const runDB = async () => {
   try {
-    await mongoose.connect(process.env.URI);
+    // اطمینان از اتصال به MongoDB Atlas یا هر پایگاه داده ابری
+    await mongoose.connect(process.env.URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Connected to MongoDB");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);
@@ -17,8 +22,9 @@ const runDB = async () => {
 };
 
 const runPort = () => {
-  app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}`);
+  const port = process.env.PORT || 3000; // پورت خودکار توسط Vercel
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
   });
 };
 
